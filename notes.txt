@@ -1,3 +1,0 @@
-Notes and stuff
-
-setwd("~/gitStuff/datasciencecoursera/ProgrammingAssignment2")
