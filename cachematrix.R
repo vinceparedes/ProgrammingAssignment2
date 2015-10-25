@@ -12,7 +12,8 @@ makeCacheMatrix <- function(x = matrix()) {
     i <- NULL
     ## four functions defined below: set, get, setInverse, getInverse
     set <- function(y) {
-        ## x and i are made global variables, that are now accessible to the cacheSolve function 
+        ## x and i are made global variables, that are now accessible to the cacheSolve function. x is the
+        ## matrix and i is the inverse of x. 
         x <<- y
         i <<- NULL
     }
@@ -30,8 +31,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function returns the inverse of the input parameter (a matrix). 
 ## cacheSolve is special because it returns a precalculated inverse, or if there is no precalculated
 ##    version of the matrix, it calculates the inverse and stores it for later use. 
+## The x parameter below is the object (list) returned by the makeCacheMatrix function.
 cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
+    ## Return a matrix that is the inverse of the 'x' global variable, not the variable x
+    ##  that is in this function. 
     ## get the inverse
     i <- x$getInverse()
     ## If the inverse is not null then return the inverse
